@@ -148,3 +148,76 @@ hr {
     box-shadow: 0 0 60px 10px #ff2222cc, 0 0 10px #000;
     border-color: #fff;
 }
+
+@media (max-width: 600px) {
+    body {
+        padding: 24px 0;
+        box-sizing: border-box;
+    }
+    .container {
+        min-width: unset;
+        width: 94vw;
+        max-width: 370px;
+        margin: 0 auto;
+        padding: 16px 2vw 12px 2vw;
+        border-radius: 16px;
+    }
+    h1 {
+        font-size: 1.3em;
+    }
+    .card {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 6px;
+        gap: 10px;
+    }
+    .card i {
+        margin-right: 8px;
+        margin-bottom: 0;
+    }
+    .icon-row {
+        gap: 18px;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        width: 98vw;
+        max-width: 99vw;
+        padding: 6px 1vw 6px 1vw;
+        border-radius: 12px;
+    }
+    .card-list {
+        gap: 8px;
+    }
+    .note {
+        font-size: 0.8em;
+    }
+}
+
+/* Add or update at the end of your file */
+#splash {
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: #000; /* Pure black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.7s;
+}
+
+.splash-logo {
+    width: 200px;   /* Larger logo */
+    height: 200px;  /* Larger logo */
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px #fff) drop-shadow(0 0 10px #ff2222);
+    animation: splashPop 1.2s cubic-bezier(.39,.575,.565,1) both;
+}
+
+@keyframes splashPop {
+    0% { transform: scale(0.7); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
