@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+    <div id="splash">
+        <img src="RMlogo.png" alt="Real Madrid" class="splash-logo">
+    </div>
+    <div class="container" style="display:none;">
         <h1>Rojhat Muhammad</h1>
         <hr>
         <div class="card-list">
@@ -40,5 +43,16 @@
             <a href="tel:07502442537"><i class="fas fa-phone"></i></a>
         </div>
     </div>
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.getElementById('splash').style.opacity = 0;
+            setTimeout(function() {
+                document.getElementById('splash').style.display = 'none';
+                document.querySelector('.container').style.display = '';
+            }, 700);
+        }, 1800); // Show splash for 1.8 seconds
+    });
+    </script>
 </body>
 </html>
