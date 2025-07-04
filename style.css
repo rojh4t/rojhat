@@ -1,0 +1,150 @@
+body {
+    background: radial-gradient(ellipse at center, #181818 0%, #000 100%);
+    color: #ff2222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    animation: bgmove 10s ease-in-out infinite alternate;
+}
+
+@keyframes bgmove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.container {
+    background: rgba(30, 0, 0, 0.7);
+    border-radius: 18px;
+    padding: 36px 32px 24px 32px;
+    min-width: 350px;
+    box-shadow: 0 0 40px 10px #ff222255, 0 0 10px #000;
+    backdrop-filter: blur(18px);
+    border: 1.5px solid #ff2222;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 1.2s cubic-bezier(.39,.575,.565,1) both;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(40px) scale(0.98);}
+    100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+h1 {
+    color: #ff2222;
+    font-size: 2.2em;
+    margin-bottom: 0.2em;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff2222, 0 0 20px #000;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #ff2222;
+    width: 60px;
+    margin: 0 auto 24px auto;
+    opacity: 0.7;
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    background: rgba(0,0,0,0.6);
+    border: 1.5px solid #ff2222;
+    border-radius: 12px;
+    padding: 14px 18px;
+    box-shadow: 0 0 12px #ff222244;
+    gap: 18px;
+    transition: box-shadow 0.2s, border 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 0 24px #ff222288, 0 0 8px #000;
+    transform: scale(1.025);
+    border-color: #fff;
+}
+
+.card i {
+    font-size: 2em;
+    color: #ff2222;
+    background: #181818;
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 8px;
+    box-shadow: 0 0 8px #ff222288;
+}
+
+.card.instagram i {
+    background: radial-gradient(circle at 30% 30%, #ff5e62 60%, #ff2222 100%);
+    color: #fff;
+}
+.card.snapchat i {
+    background: radial-gradient(circle at 30% 30%, #ffe259 60%, #ffa751 100%);
+    color: #222;
+}
+.card.phone i {
+    background: radial-gradient(circle at 30% 30%, #ff2222 60%, #b31217 100%);
+    color: #fff;
+}
+
+.card .label {
+    color: #ffb3b3;
+    font-size: 1em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.card a {
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s;
+    text-shadow: 0 2px 8px #000a;
+}
+
+.card a:hover {
+    color: #ff2222;
+}
+
+.note {
+    color: #ccc;
+    font-size: 0.95em;
+    margin: 18px 0 10px 0;
+    opacity: 0.8;
+}
+
+.icon-row {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+
+.icon-row a {
+    color: #ff2222;
+    font-size: 1.7em;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.icon-row a:hover {
+    color: #fff;
+    transform: scale(1.15);
+}
+
+/* Glowing border on hover */
+.container:hover {
+    box-shadow: 0 0 60px 10px #ff2222cc, 0 0 10px #000;
+    border-color: #fff;
+}
