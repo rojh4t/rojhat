@@ -1,28 +1,57 @@
+:root {
+    --gold: #d4af37;
+    --gold-glow: #ffe066;
+    --dark: #181818;
+    --dark2: #232323;
+}
+
 body {
-    background: radial-gradient(ellipse at center, #181818 0%, #000 100%);
-    color: #ff2222;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background:
+        linear-gradient(to right, transparent 0%, var(--gold-glow) 2%, transparent 10%, transparent 90%, var(--gold-glow) 98%, transparent 100%),
+        repeating-linear-gradient(135deg, var(--dark) 0 40px, var(--dark2) 40px 80px);
+    background-color: var(--dark);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    animation: bgmove 10s ease-in-out infinite alternate;
 }
 
-@keyframes bgmove {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+#splash {
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: #181818;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.7s;
+}
+
+.splash-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px var(--gold-glow)) drop-shadow(0 0 10px var(--gold));
+    animation: splashPop 1.2s cubic-bezier(.39,.575,.565,1) both;
+    display: block;
+    margin: 0 auto;
+}
+
+@keyframes splashPop {
+    0% { transform: scale(0.7); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 .container {
-    background: rgba(30, 0, 0, 0.7);
+    background: rgba(24, 24, 24, 0.96);
     border-radius: 18px;
     padding: 36px 32px 24px 32px;
     min-width: 350px;
-    box-shadow: 0 0 40px 10px #ff222255, 0 0 10px #000;
-    backdrop-filter: blur(18px);
-    border: 1.5px solid #ff2222;
+    box-shadow: 0 0 40px 10px var(--gold-glow), 0 0 10px #000;
+    border: 2px solid var(--gold);
     text-align: center;
     position: relative;
     animation: fadeIn 1.2s cubic-bezier(.39,.575,.565,1) both;
@@ -34,17 +63,17 @@ body {
 }
 
 h1 {
-    color: #ff2222;
+    color: var(--gold);
     font-size: 2.2em;
     margin-bottom: 0.2em;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-weight: bold;
-    text-shadow: 0 0 10px #ff2222, 0 0 20px #000;
+    text-shadow: 0 0 10px var(--gold), 0 0 20px #000;
 }
 
 hr {
     border: none;
-    border-top: 2px solid #ff2222;
+    border-top: 2px solid var(--gold);
     width: 60px;
     margin: 0 auto 24px auto;
     opacity: 0.7;
@@ -60,49 +89,23 @@ hr {
 .card {
     display: flex;
     align-items: center;
-    background: rgba(0,0,0,0.6);
-    border: 1.5px solid #ff2222;
+    background: rgba(24,24,24,0.8);
+    border: 1.5px solid var(--gold);
     border-radius: 12px;
     padding: 14px 18px;
-    box-shadow: 0 0 12px #ff222244;
+    box-shadow: 0 0 12px var(--gold-glow);
     gap: 18px;
     transition: box-shadow 0.2s, border 0.2s;
 }
 
-.card:hover {
-    box-shadow: 0 0 24px #ff222288, 0 0 8px #000;
-    transform: scale(1.025);
-    border-color: #fff;
-}
-
 .card i {
     font-size: 2em;
-    color: #ff2222;
-    background: #181818;
+    color: var(--gold);
+    background: #232323;
     border-radius: 50%;
     padding: 10px;
     margin-right: 8px;
-    box-shadow: 0 0 8px #ff222288;
-}
-
-.card.instagram i {
-    background: radial-gradient(circle at 30% 30%, #ff5e62 60%, #ff2222 100%);
-    color: #fff;
-}
-.card.snapchat i {
-    background: radial-gradient(circle at 30% 30%, #ffe259 60%, #ffa751 100%);
-    color: #222;
-}
-.card.phone i {
-    background: radial-gradient(circle at 30% 30%, #ff2222 60%, #b31217 100%);
-    color: #fff;
-}
-
-.card .label {
-    color: #ffb3b3;
-    font-size: 1em;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    box-shadow: 0 0 8px var(--gold-glow);
 }
 
 .card a {
@@ -115,7 +118,7 @@ hr {
 }
 
 .card a:hover {
-    color: #ff2222;
+    color: var(--gold);
 }
 
 .note {
@@ -133,7 +136,7 @@ hr {
 }
 
 .icon-row a {
-    color: #ff2222;
+    color: var(--gold);
     font-size: 1.7em;
     transition: color 0.2s, transform 0.2s;
 }
@@ -143,12 +146,7 @@ hr {
     transform: scale(1.15);
 }
 
-/* Glowing border on hover */
-.container:hover {
-    box-shadow: 0 0 60px 10px #ff2222cc, 0 0 10px #000;
-    border-color: #fff;
-}
-
+/* Responsive */
 @media (max-width: 600px) {
     body {
         padding: 24px 0;
@@ -194,30 +192,4 @@ hr {
     .note {
         font-size: 0.8em;
     }
-}
-
-/* Add or update at the end of your file */
-#splash {
-    position: fixed;
-    z-index: 9999;
-    inset: 0;
-    background: #000; /* Pure black background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.7s;
-}
-
-.splash-logo {
-    width: 200px;   /* Larger logo */
-    height: 200px;  /* Larger logo */
-    object-fit: contain;
-    filter: drop-shadow(0 0 30px #fff) drop-shadow(0 0 10px #ff2222);
-    animation: splashPop 1.2s cubic-bezier(.39,.575,.565,1) both;
-}
-
-@keyframes splashPop {
-    0% { transform: scale(0.7); opacity: 0; }
-    60% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); opacity: 1; }
 }
